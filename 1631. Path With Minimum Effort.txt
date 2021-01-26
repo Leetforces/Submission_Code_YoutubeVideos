@@ -1,0 +1,63 @@
+
+/*
+   Problem Link: https://leetcode.com/problems/path-with-minimum-effort/
+   Video Link: https://www.youtube.com/watch?v=doHFUU8EwfQ&t=49s
+*/
+class Solution {
+public:
+    int dx[4]={0,0,1,-1};
+    int dy[4]={1,-1,0,0};
+    bool dfs(vector<vector<int>>& h,vector<vector<bool>>& visited,int row,int column,int x,int y,int mid)
+    {
+        if(x==row-1&& y==column-1)
+            return true;
+        
+        visited[x][y]=true;
+        
+        for(int i=0;i<4;i++)
+        {
+            int newx=x+dx[i];
+            int newy=y+dy[i];
+            
+            if(newx<0 || newy<0 || newx>=row || newy>=column || visited[newx][newy])
+            continue;
+            
+            if(abs(h[x][y]-h[newx][newy])>mid)
+                continue;
+            
+            if(dfs(h,visited,row,column,newx,newy,mid))
+                return true;
+            
+        }
+        return false;
+    }
+    int minimumEffortPath(vector<vector<int>>& h) {
+        
+        int row=h.size();
+        int column=h[0].size();
+        
+        vector<vector<bool>> visited(row,vector<bool>(column,false));
+        
+        int low=0,high=1000000;
+        int ans=high;
+        
+        while(low<=high)
+        {
+            int mid=low+(high-low)/2;
+            
+            if(dfs(h,visited,row,column,0,0,mid))
+            {
+                ans=mid;
+                high=mid-1;
+            }  
+            else
+                low=mid+1;
+            
+            for(int i=0;i<row;i++)
+                for(int j=0;j<column;j++)
+                    visited[i][j]=false;
+        }
+        return ans;
+        
+    }
+};
