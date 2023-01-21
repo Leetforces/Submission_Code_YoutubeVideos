@@ -1,0 +1,4 @@
+
+KILL A PORT NUMBER
+If you have npm installed you can also run
+npx kill-port PORT_NUMBER
