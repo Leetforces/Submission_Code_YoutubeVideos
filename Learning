@@ -12,3 +12,20 @@ npx kill-port PORT_NUMBER
 // API springboot Demo
 https://www.youtube.com/watch?v=5PdEmeopJVQ&ab_channel=freeCodeCamp.org
 https://github.com/fhsinchy/movieist/tree/master/src/main/java/dev/farhan/movieist/movies
+
+
+mvn build command explained
+
+
+Manish Kumar
+Meaning of command mvn clean install -DskipTests -X -U
+
+The command mvn clean install -DskipTests -X -U is used in Maven to build a project and generate the project artifacts such as JAR or WAR files. Here is what each option means:
+
+mvn is the command to run Maven.
+clean is a Maven lifecycle phase that cleans the output of the previous build. This step ensures that the build starts from scratch and doesn't use any artifacts from a previous build.
+install is another Maven lifecycle phase that compiles and packages the source code of the project into a distributable format such as a JAR or WAR file, and then installs it in the local repository of the user's machine. This phase is useful for other projects on the same machine that depend on this artifact.
+-DskipTests is a Maven command-line option that skips the execution of unit tests during the build process. This option is useful when the user doesn't want to run the tests or when they want to run them separately.
+-X is a Maven command-line option that enables debug logging, which provides more detailed information about the build process.
+-U is a Maven command-line option that forces the update of snapshots and releases dependencies. This option is useful when the user wants to ensure that the latest dependencies are used during the build process.
+Overall, this command will clean the previous build artifacts, compile and package the source code, skip the tests, enable debug logging, and force updates to the dependencies.
