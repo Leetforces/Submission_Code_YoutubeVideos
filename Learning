@@ -3,6 +3,17 @@ KILL A PORT NUMBER
 If you have npm installed you can also run
 npx kill-port PORT_NUMBER
 
+COTC Migration (Tranche wise)
+	•	Added FileWatcher and feed import Control-M jobs for each CCP: LCH SA, LCH FX, and Eurex.
+	•	Inserted SQL queries into the F3Job table to create Dbmargin jobs for importing feed files.
+	•	Supported Migration Readiness from the CMV perspective, ensuring smooth migration of agreements across all tranches.
+	•	Created External Exposures Reset 3 workflow jobs for clearingtaskUS, covering BlackRock US timing.
+	•	Updated Client CCPs Migration Readiness by making necessary changes in F3Jobs.
+	•	Prepared for Tranche 8 bulk migration of LCH SCM, SA, FX & Eurex agreements by creating F3Jobs for planned agreements.
+	•	Deployed all scripts required to update agreements during each migration for CCPs: LCH, Eurex, LCHSA, LCHFX.
+	•	Added dependencies on Cutoff jobs, DER jobs, and Cashflow Autobooking jobs to maintain correct workflow execution.
+	•	Adjusted timing of FileWatcher and import jobs for each CCP to prevent overlaps and ensure smooth processing.
+	•	Coordinated with L2 team to add Geneous alerts on incoming files from DBCS and documented the process on Confluence.
 
 
 # what should be in application.properties file to customizing the spring boot application
