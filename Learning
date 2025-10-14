@@ -25,3 +25,17 @@ CASS Report Development for OPS and Client Service Teams
 	•	Updated DSS configurations, reloaded data, and performed comprehensive archival testing.
 	•	Implemented Repgen and Control-M changes to ensure smooth report generation and scheduling.
 	•	Conducted a detailed handover session and explained all changes to Rajesh.
+MCUBE Balance Report Development
+	•	Developed stored procedure logic in the dbmarginil schema to load daily price and haircut information from dbmargin tables.
+	•	Created Control-M jobs and supporting scripts to automate the data load process, scheduled Sunday–Thursday at 9:30 PM EST, aligned with the DBREX job schedule.
+	•	Designed and implemented a stored procedure to generate the MCUBE Balance Report, resolving multiple data outliers through extensive testing and validation.
+	•	Developed a Java utility to identify and analyze outliers between the DBMargin and DBREX MCUBE Balance reports.
+	•	Collaborated closely with Rajesh to understand the DBREX MCUBE Balance report generation logic (built in Informatica and PL/SQL).
+	•	Conducted multiple parallel production tests and deployments to address performance issues and data mismatches.
+	•	Provided knowledge transfer (KT) to the MCUBE team, addressed their feedback and enhancement requests, and obtained final sign-off after successful production validation.
+	•	Implemented a feed enhancement to convert As_of_date into yyyy-MM-dd format as per MCUBE team requirements.
+	•	Achieved significant performance optimization by:
+	•	Aggregating 60-day-old balances into local tables for faster data retrieval.
+	•	Archiving 2-month-old price and haircut data into history tables to improve performance.
+	•	Adding table partitioning, reducing report generation time to under 12 minutes.
+	•	Automating archival of data older than 65 business days via the dbmarginil archival process.
