@@ -50,3 +50,16 @@ MCUBE Balance Report Development
 	•	Archiving 2-month-old price and haircut data into history tables to improve performance.
 	•	Adding table partitioning, reducing report generation time to under 12 minutes.
 	•	Automating archival of data older than 65 business days via the dbmarginil archival process.
+
+House Development
+	•	Built logic in cs-post-ingestion-service to handle GET HTTP requests with query parameters, enabling automated triggering of workflows.
+	•	Completed deployment tasks including creation of tables, views, types, sequences, packages, and procedures, with all necessary permissions granted for House development.
+	•	Created jobs for importing House Offset and ABF data into dbmargin.
+	•	Developed new jobs and scripts to call dbmarginil procedures for updating DAILY_COB_DATE tables.
+	•	Set up production directories for SANTANDER, SWAPAGENT, and Archive, and applied proper permissions.
+	•	Renamed Asset Booking table from STAGING_COTC_ASSET_BOOKING_DBCS to STAGING_COTC_ASSET_BOOKING_HOUSE_DBCS, including creation of the corresponding history table, and updated the ABF House package to reflect the new table name.
+	•	Implemented House CCPs migration readiness changes, including removal of user confirmations from all jobs, along with package and script updates to support report generation.
+	•	Executed production deployment for new Control-M jobs for House ABF and Offset report generation, including deployment of all supporting scripts.
+	•	Added all necessary job dependencies to ensure proper execution order for House workflows.
+	•	Created all House directories and applied 775 permissions to directories and subdirectories for proper access control.
+	•	Created staging tables for loading AHV, SSI, and Asset Booking DBS data in the dbmarginil schema, granting access to DBM_COTC_USER.
