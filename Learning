@@ -2,7 +2,13 @@
 KILL A PORT NUMBER
 If you have npm installed you can also run
 npx kill-port PORT_NUMBER
-
+Control-M Deployment
+	•	Created a separate sub-application in the monitoring section and moved all COTC Control-M jobs under DBMRGN for better organization and monitoring.
+	•	Enabled Control-M alerts for all COTC jobs, identified issues, and added alerts to House and COTC related jobs to capture failures proactively.
+	•	Renamed existing Control-M jobs to align with the new sequencing for EUREX, LCHSA, and LCHFX.
+	•	Analyzed and adjusted FileWatcher and import job timings, and added necessary dependencies to ensure proper workflow execution.
+	•	Created separate Cutoff jobs for each CCP, including EUREX Cutoff Job 27, and ensured the UK Cutoff job runs before feed load to prevent recurrence of previous scheduling issues.
+	•	Created a new F3Job for Clearing Task UK to support migration and operational workflows.
 COTC Migration (Tranche wise)
 	•	Added FileWatcher and feed import Control-M jobs for each CCP: LCH SA, LCH FX, and Eurex.
 	•	Inserted SQL queries into the F3Job table to create Dbmargin jobs for importing feed files.
