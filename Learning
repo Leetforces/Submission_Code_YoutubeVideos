@@ -12,6 +12,17 @@ npx kill-port PORT_NUMBER
 // API springboot Demo
 https://www.youtube.com/watch?v=5PdEmeopJVQ&ab_channel=freeCodeCamp.org
 https://github.com/fhsinchy/movieist/tree/master/src/main/java/dev/farhan/movieist/movies
+MCUBE Balance Report Development
+	•	Developed stored procedure logic in the dbmarginil schema to load daily price and haircut data from dbmargin tables.
+	•	Created Control-M jobs and scripts to automate the process, scheduled Sunday–Thursday at 9:30 PM EST, aligned with DBREX workflows.
+	•	Implemented the MCUBE Balance Report generation procedure, resolving multiple data outliers through detailed testing and validation.
+	•	Built a Java utility to identify discrepancies between DBMargin and DBREX MCUBE Balance reports, improving reconciliation accuracy.
+	•	Collaborated with Rajesh to understand DBREX report logic (developed in Informatica and PL/SQL) and align both reporting flows.
+	•	Conducted multiple production parallel runs to fix performance issues and validate results.
+	•	Provided knowledge transfer (KT) to the MCUBE team, incorporated their feedback, and achieved final sign-off after stable production validation.
+	•	Optimized performance and archival process by aggregating 60-day-old balances into local tables, archiving older data into history tables, and implementing table partitioning — reducing report generation time to under 12 minutes and ensuring smooth archival of 65-day-old data.
+	•	Updated the feed to convert the As_of_date to yyyy-MM-dd format as per MCUBE team requirements.
+
 
 CASS Report Development for OPS and Client Service Teams
 	•	Documented detailed business and technical requirements on the Confluence page.
