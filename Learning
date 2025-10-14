@@ -12,3 +12,16 @@ npx kill-port PORT_NUMBER
 // API springboot Demo
 https://www.youtube.com/watch?v=5PdEmeopJVQ&ab_channel=freeCodeCamp.org
 https://github.com/fhsinchy/movieist/tree/master/src/main/java/dev/farhan/movieist/movies
+
+CASS Report Development for OPS and Client Service Teams
+	•	Documented detailed business and technical requirements on the Confluence page.
+	•	Designed and developed a new template for storing daily exposure data, including all required reporting columns.
+	•	Created F3 jobs and Control-M jobs to automate daily report generation.
+	•	Developed DSS flow service configuration to load the report data daily into the staging table of the dbmarginil schema.
+	•	Designed and created the staging and archival tables for data management.
+	•	Implemented stored procedure logic to generate the CASS report, along with scripts to call the procedure and generate separate reports for both OPS and Client Service teams.
+	•	Enhanced the logic later to include additional columns (e.g., CCP, FX_RATE) missing from the original DER template.
+	•	Modified the DBMargin template, staging table, and archival table to accommodate these changes.
+	•	Updated DSS configurations, reloaded data, and performed comprehensive archival testing.
+	•	Implemented Repgen and Control-M changes to ensure smooth report generation and scheduling.
+	•	Conducted a detailed handover session and explained all changes to Rajesh.
