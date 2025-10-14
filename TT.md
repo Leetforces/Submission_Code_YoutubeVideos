@@ -88,6 +88,27 @@
 - Participated in **sports and CSR events** organized by **Deutsche Bank**.
 
 ---
+## Testing and Support
+- Assisted the **testing team** (Sonali, Neelam, Ravneet) during **EUREX, LCHSA, and LCHFX migrations**, performing end-to-end testing alongside them.  
+- Provided **daily support** during **UAT**, troubleshooting any technical challenges and ensuring smooth testing execution.  
+
+## Change Ticket Management
+- Raised **Change Tickets** for almost all **weekend deployments** and **mid-week migrations** related to **COTC Migration** consistently throughout the year.  
+- Managed **evidence calls**, provided **knowledge transfer (KT)** to **L2**, explained all changes, and addressed counter questions.  
+- Coordinated with **JIRA owners** to ensure all changes were properly documented in **TER, binary, and Source Code Reports**, with complete **implementation and rollback plans**.  
+- Worked extended hours on **Fridays** to obtain **approvals**, close **SDLC controls**, get **sign-offs**, and ensure **TER closure**.  
+- Verified **TBAC passes** for release **JARs**, added **SCR and binary details**, keeping **CRs in approval state**.  
+- Deployed changes almost every **Saturday** and collected **post-release evidence**.  
+- Ensured all **Change Tickets** were **closed on time**.  
+
+## AWV Contributions
+- Temporarily disabled **auto-archive** of **BGS_SETTLEMENT_POSTING table** and moved **Jan 2022 archive data** from history to main table.  
+- Updated **BGS_SETTLEMENT_POSTING table** by replacing **Org_ID=0 with 5121431**.  
+- Implemented **code changes** to bypass calls to **dbHive FSIP Cache** while processing **COTC Fees & Interests**.  
+- Upgraded **AWV services** to **JDK 17.0.13** for all 8 services.  
+- Provided **KT on AWV dbmargin flow** to the team.  
+- Modified **dbCS file processing logic** to archive repeated files, bypassing saving under **ErrorFiles folder**.  
+- Had multiple calls with **Sadivya** over the months to discuss **AWV issues and guidance**.  
 
 ## 8. Overall Values & Beliefs
 - Completed **mandatory training** on time.
