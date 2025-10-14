@@ -1,7 +1,10 @@
-
-KILL A PORT NUMBER
-If you have npm installed you can also run
-npx kill-port PORT_NUMBER
+Testing and Support
+	•	Developed scripts to extract unique error reasons at the agreement level from large sets of failed records, enabling faster and more accurate issue analysis.
+	•	Assisted team members in production release preparation, ensuring smooth deployment processes.
+	•	Supported DBI Journal Posting analysis and testing from the House development perspective.
+	•	Provided support during COTC tranche migrations, assisting with deployments and resolving issues when they arose.
+	•	Collaborated with the testing team (Sonali, Neelam, Ravneet) during EUREX, LCHSA, and LCHFX migrations, performing end-to-end testing alongside them.
+	•	Offered daily support to the testing team during UAT, troubleshooting technical challenges and ensuring uninterrupted testing.
 Control-M Deployment
 	•	Created a separate sub-application in the monitoring section and moved all COTC Control-M jobs under DBMRGN for better organization and monitoring.
 	•	Enabled Control-M alerts for all COTC jobs, identified issues, and added alerts to House and COTC related jobs to capture failures proactively.
