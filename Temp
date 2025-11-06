@@ -1,0 +1,63 @@
+import java.io.File;
+import java.util.*;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
+import org.w3c.dom.*;
+
+public class JobProcessor {
+
+    public static void processJobs(String xmlFile) {
+        try {
+            File file = new File(xmlFile);
+
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder builder = factory.newDocumentBuilder();
+            Document doc = builder.parse(file);
+
+            doc.getDocumentElement().normalize();
+
+            NodeList jobList = doc.getElementsByTagName("JOB");
+
+            // Map to store SUB_APPLICATION → List of JOBNAME
+            Map<String, List<String>> jobsBySubApp = new TreeMap<>();
+
+            for (int i = 0; i < jobList.getLength(); i++) {
+                Node node = jobList.item(i);
+
+                if (node.getNodeType() == Node.ELEMENT_NODE) {
+                    Element job = (Element) node;
+
+                    String subApp = job.getAttribute("SUB_APPLICATION");
+                    String jobName = job.getAttribute("JOBNAME");
+
+                    if (!subApp.isEmpty() && !jobName.isEmpty()) {
+                        jobsBySubApp
+                                .computeIfAbsent(subApp, k -> new ArrayList<>())
+                                .add(jobName);
+                    }
+                }
+            }
+
+            // Print results
+            for (String subApp : jobsBySubApp.keySet()) {
+                System.out.println("Sub-application: " + subApp);
+
+                List<String> jobs = jobsBySubApp.get(subApp);
+                Collections.sort(jobs);
+
+                for (String job : jobs) {
+                    System.out.println("  - " + job);
+                }
+                System.out.println("--------------------");
+            }
+
+        } catch (Exception e) {
+            System.out.println("Error reading XML: " + e.getMessage());
+        }
+    }
+
+    public static void main(String[] args) {
+        processJobs("DBMRONTABA.xml");
+    }
+}
