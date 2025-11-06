@@ -1,0 +1,94 @@
+import java.io.File;
+import java.io.FileOutputStream;
+import java.util.*;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.w3c.dom.*;
+
+public class JobProcessorExcel {
+
+    public static void processJobs(String xmlFile, String excelFile) {
+        try {
+            File file = new File(xmlFile);
+
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder builder = factory.newDocumentBuilder();
+            Document doc = builder.parse(file);
+
+            doc.getDocumentElement().normalize();
+
+            // ✅ Add/Remove columns here ONLY
+            String[] headers = {
+                "SUB_APPLICATION",
+                "JOBNAME",
+                "TIMEZONE",
+                "APPLICATION",
+                "MEMLIB",
+                "CMD"
+            };
+
+            List<Map<String, String>> rows = new ArrayList<>();
+
+            NodeList jobList = doc.getElementsByTagName("JOB");
+
+            for (int i = 0; i < jobList.getLength(); i++) {
+                Node node = jobList.item(i);
+
+                if (node.getNodeType() == Node.ELEMENT_NODE) {
+                    Element job = (Element) node;
+
+                    Map<String, String> row = new LinkedHashMap<>();
+                    for (String header : headers) {
+                        row.put(header, job.getAttribute(header));
+                    }
+
+                    rows.add(row);
+                }
+            }
+
+            writeToExcel(headers, rows, excelFile);
+            System.out.println("Excel file created: " + excelFile);
+
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+
+    private static void writeToExcel(String[] headers, List<Map<String, String>> rows, String excelFile) {
+        try (Workbook workbook = new XSSFWorkbook()) {
+            Sheet sheet = workbook.createSheet("Jobs");
+
+            Row headerRow = sheet.createRow(0);
+            for (int i = 0; i < headers.length; i++) {
+                headerRow.createCell(i).setCellValue(headers[i]);
+            }
+
+            int rowNum = 1;
+            for (Map<String, String> rowData : rows) {
+                Row row = sheet.createRow(rowNum++);
+                int col = 0;
+                for (String header : headers) {
+                    row.createCell(col++).setCellValue(rowData.get(header));
+                }
+            }
+
+            for (int i = 0; i < headers.length; i++) {
+                sheet.autoSizeColumn(i);
+            }
+
+            FileOutputStream fos = new FileOutputStream(excelFile);
+            workbook.write(fos);
+            fos.close();
+
+        } catch (Exception e) {
+            System.out.println("Error writing excel: " + e.getMessage());
+        }
+    }
+
+    public static void main(String[] args) {
+        processJobs("DBMRONTABA.xml", "jobs_output.xlsx");
+    }
+}
